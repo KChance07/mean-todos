@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Todo = require('../models/todo.model.js');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));

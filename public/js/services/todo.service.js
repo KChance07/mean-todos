@@ -35,7 +35,23 @@
               console.log(err);
             });
     }
-    function updateOne(index, todo){}
-    function deleteOneTodo(index){}
+    function updateOne(index, todo){
+      $http.put('/todos/' + updatedTodo._id, updatedTodo)
+          .then(function(){
+            todos.splice(index, 1, updatedTodo);
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    }
+    function deleteOneTodo(index, deletedTodo){
+      $http.delete('/todos/' + deletedTodo._id)
+            .then(function(){
+              todos.splice(index, 1);
+            })
+            .catch(function(err){
+              console.log(err);
+            });
+    }
   }
 }());
